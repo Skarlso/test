@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Send Slack Notification
-      uses: skarlso/slack-notification-action@main
+      uses: skarlso/slack-notification-action@b4cd2b295836f0b206f1e4f44ccd1a5cf391f89d
       with:
         message: ":wink: test message from bot `this`."
         token: ${{ secrets.SLACK_BOT_TOKEN }}
