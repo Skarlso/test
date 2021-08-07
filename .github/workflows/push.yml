@@ -7,6 +7,6 @@ jobs:
     - name: Send Slack Notification
       uses: skarlso/slack-notification-action@main
       with:
-        message: test message from action
+        message: ":wink: test message from bot `this`."
         token: ${{ secrets.SLACK_BOT_TOKEN }}
         channel: C011RS3S0UA
