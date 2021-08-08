@@ -5,16 +5,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Send Slack Notification
-      uses: skarlso/slack-notification-action@dd303a9e1f2ea6a245df44620587c926ed63da16
+      uses: skarlso/slack-notification-action@095b5a0a7ec77b4a6f68a2c7c57ff4e253f497d3
       id: slacknot
       with:
         message: ":wink: test message from bot `this`."
         token: ${{ secrets.SLACK_BOT_TOKEN }}
         channel: C011RS3S0UA
     - name: Send Slack Notification
-      uses: skarlso/slack-notification-action@dd303a9e1f2ea6a245df44620587c926ed63da16
+      uses: skarlso/slack-notification-action@095b5a0a7ec77b4a6f68a2c7c57ff4e253f497d3
       with:
         message: ":wink: test message from bot `THAT`."
         token: ${{ secrets.SLACK_BOT_TOKEN }}
         channel: C011RS3S0UA
-        timestamp: ${{ steps.slacknot.outputs.timestamp }}
+        thread_ts: ${{ steps.slacknot.outputs.timestamp }}
