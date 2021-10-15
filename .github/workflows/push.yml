@@ -1,20 +1,12 @@
 on: push
-name: Publish Blog
+name: Publish Action
 jobs:
-  blog-builder:
+  push-action:
     runs-on: ubuntu-latest
     steps:
-    - name: Send Slack Notification
-      uses: skarlso/slack-notification-action@095b5a0a7ec77b4a6f68a2c7c57ff4e253f497d3
-      id: slacknot
+    - name: Trigger the poller
+      uses: benc-uk/workflow-dispatch@4c044c1613fabbe5250deadc65452d54c4ad4fc7
       with:
-        message: ":wink: test message from bot `this`."
-        token: ${{ secrets.SLACK_BOT_TOKEN }}
-        channel: C011RS3S0UA
-    - name: Send Slack Notification
-      uses: skarlso/slack-notification-action@095b5a0a7ec77b4a6f68a2c7c57ff4e253f497d3
-      with:
-        message: ":wink: test message from bot `THAT`."
-        token: ${{ secrets.SLACK_BOT_TOKEN }}
-        channel: C011RS3S0UA
-        thread_ts: ${{ steps.slacknot.outputs.timestamp }}
+        workflow: Trigger the poller
+        token: ${{ secrets.GITHUB_TOKEN }}
+        inputs: '{ "changeset": "changeset-id" }'
