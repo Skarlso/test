@@ -13,6 +13,7 @@ jobs:
           workflow_id: 14215184
           repo: test
           body: | # The | is significant!
+            |
             changeset: changeset
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
