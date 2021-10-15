@@ -13,7 +13,7 @@ jobs:
           workflow_id: 14215184
           repo: test
           ref: ${{ github.ref }}
-          body: | # The | is significant!
+          inputs: | # The | is significant!
             |
             changeset: changeset
         env:
