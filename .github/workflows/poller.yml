@@ -4,7 +4,7 @@ on:
     inputs:
       changeset:
         description: 'The id of the changeset to keep polling...'
-        required: true
+        required: false
         default: ''
 
 jobs:
@@ -12,4 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "Hello ${{ github.event.inputs.changeset }}!"
+          echo "Triggerred for changeset: ${{ github.event.inputs.changeset }}!"
