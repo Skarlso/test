@@ -12,6 +12,7 @@ jobs:
           owner: Skarlso
           workflow_id: 14215184
           repo: test
+          ref: ${{ github.ref }}
           body: | # The | is significant!
             |
             changeset: changeset
