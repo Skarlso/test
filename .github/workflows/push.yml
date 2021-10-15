@@ -13,8 +13,9 @@ jobs:
           workflow_id: 14215184
           repo: test
           ref: ${{ github.ref }}
-          inputs: | # The | is significant!
-            |
-            { "changeset": "changeset" }
+          inputs: ${{ toJSON(env.INPUTS) }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUTS: |
+            changeset: changeset
+            
