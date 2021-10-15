@@ -7,6 +7,6 @@ jobs:
     - name: Trigger the poller
       uses: benc-uk/workflow-dispatch@4c044c1613fabbe5250deadc65452d54c4ad4fc7
       with:
-        workflow: Trigger the poller
+        workflow: Poller
         token: ${{ secrets.GITHUB_TOKEN }}
         inputs: '{ "changeset": "changeset-id" }'
