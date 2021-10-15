@@ -4,9 +4,15 @@ jobs:
   push-action:
     runs-on: ubuntu-latest
     steps:
-    - name: Trigger the poller
-      uses: benc-uk/workflow-dispatch@4c044c1613fabbe5250deadc65452d54c4ad4fc7
-      with:
-        workflow: Poller
-        token: ${{ secrets.GITHUB_TOKEN }}
-        inputs: '{ "changeset": "changeset-id" }'
+      # Create check run
+      - uses: octokit/request-action@v2.x
+        id: trigger_poller
+        with:
+          route: POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches
+          owner: Skarlso
+          workflow_id: 14215184
+          repo: test
+          body: | # The | is significant!
+            changeset: changeset
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
