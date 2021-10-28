@@ -1,0 +1,14 @@
+on: push
+name: Test empty value from output
+jobs:
+  push-action:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Test empty value
+      run: |
+        echo "bla"
+      id: out
+    - name: Test output
+      if: ${{ steps.out.outputs.name }}
+      run: |
+        echo "run"
