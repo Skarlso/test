@@ -1,5 +1,6 @@
 on: push
 name: Publish Action
+concurrency: push-action
 jobs:
   push-action:
     runs-on: ubuntu-latest
