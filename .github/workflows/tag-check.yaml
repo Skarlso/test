@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set env
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: get version
+        id: get_version
+        run: echo ::set-output name=VERSION::$(echo ${GITHUB_REF#refs/*/})
       - name: Test
         run: |
-          echo $RELEASE_VERSION
-          echo ${{ env.RELEASE_VERSION }}
+          echo ${{ steps.get_version.outputs.VERSION }}
