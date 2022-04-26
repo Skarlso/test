@@ -10,7 +10,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
     - name: bundle-dependabot
-      uses: Skarlso/dependabot-bundler-action
+      uses: Skarlso/dependabot-bundler-action@latest
       with:
         token: ${{ secrets.GITHUB_TOKEN }} # must have commit access and creating PR rights
         repo: ${{ github.event.repository.name }}
