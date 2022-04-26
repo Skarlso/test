@@ -9,6 +9,10 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
+    - name: Setup Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.18.x
     - name: bundle-dependabot
       uses: skarlso/dependabot-bundler-action@v0.0.1
       with:
