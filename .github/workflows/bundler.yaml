@@ -4,7 +4,8 @@ jobs:
   bundler:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: checkout
+      uses: actions/checkout@v2
     - name: bundle-dependabot
       uses: skarlso/dependabot-bundler-action
       with:
