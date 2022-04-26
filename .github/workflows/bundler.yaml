@@ -2,6 +2,7 @@ on: push
 
 jobs:
   bundler:
+    name: bundler
     runs-on: ubuntu-latest
     steps:
       - name: checkout
