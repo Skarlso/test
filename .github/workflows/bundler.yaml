@@ -13,7 +13,7 @@ jobs:
       uses: skarlso/dependabot-bundler-action@v0.0.1
       with:
         token: ${{ secrets.GITHUB_TOKEN }} # must have commit access and creating PR rights
-        repo: ${{ github.event.repository.name }}
-        owner: ${{ github.event.repository.owner }}
+        repo: test
+        owner: Skarlso
         botName: Skarlso
         targetBranch: master
