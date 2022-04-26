@@ -13,11 +13,18 @@ jobs:
       uses: actions/setup-go@v2
       with:
         go-version: 1.18.x
-    - name: bundle-dependabot
-      uses: skarlso/dependabot-bundler-action@v0.0.2
+    - name: Cache go-build and mod
+      uses: actions/cache@v2
       with:
-        token: ${{ secrets.GITHUB_TOKEN }} # must have commit access and creating PR rights
-        repo: test
-        owner: Skarlso
-        botName: Skarlso
-        targetBranch: master
+        path: |
+          ~/.cache/go-build/
+          ~/go/pkg/mod/
+        key: go-${{ hashFiles('go.sum') }}
+        restore-keys: |
+          go-
+    - name: Install Dependabot Bundler
+      run: |
+        go install github.com/Skarlso/dependabot-bundler@v0.0.3
+    - name: Run Dependabot Bundler
+      run: |
+        dependabot-bundler --token ${{ secrets.GITHUB_TOKEN }} --repo test --owner test --bot-name Skarlso --target-branch master
