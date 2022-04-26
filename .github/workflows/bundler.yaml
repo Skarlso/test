@@ -14,7 +14,7 @@ jobs:
       with:
         go-version: 1.18.x
     - name: bundle-dependabot
-      uses: skarlso/dependabot-bundler-action@v0.0.1
+      uses: skarlso/dependabot-bundler-action@v0.0.2
       with:
         token: ${{ secrets.GITHUB_TOKEN }} # must have commit access and creating PR rights
         repo: test
