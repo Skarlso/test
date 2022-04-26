@@ -1,18 +1,19 @@
 on: push
 
+name: Bundler
+
 jobs:
   bundler:
     name: bundler
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-      - name: bundle-dependabot
-        uses: Skarlso/dependabot-bundler-action
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }} # must have commit access and creating PR rights
-          repo: ${{ github.event.repository.name }}
-          owner: ${{ github.event.repository.owner }}
-          botName: Skarlso
-          targetBranch: master
-
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: bundle-dependabot
+      uses: Skarlso/dependabot-bundler-action
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }} # must have commit access and creating PR rights
+        repo: ${{ github.event.repository.name }}
+        owner: ${{ github.event.repository.owner }}
+        botName: Skarlso
+        targetBranch: master
