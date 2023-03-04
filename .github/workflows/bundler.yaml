@@ -40,5 +40,6 @@ jobs:
           --labels bug,duplicate \
           --signing-public-key "${{ secrets.GPG_SIGN }}" \
           --signing-private-key "${{ secrets.GPG_SECRET_SIGN }}" \
+          --signing-passphrase "${{ secrets.GPG_KEY_PASSPHRASE }}" \
           --signing-name "Github Action" \
           --signing-email "41898282+github-actions@users.noreply.github.com"
