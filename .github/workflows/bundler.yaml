@@ -28,7 +28,7 @@ jobs:
           go-
     - name: Install Dependabot Bundler
       run: |
-        go install github.com/Skarlso/dependabot-bundler@e0bb91f1cdc3795cbb58d06f2f82ff7520640bbb
+        go install github.com/Skarlso/dependabot-bundler@efdcf397db548d2e44efdbd8948b682b323e08d8
     - name: Run Dependabot Bundler
       run: |
         dependabot-bundler \
@@ -38,6 +38,6 @@ jobs:
           --bot-name Skarlso \
           --target-branch main \
           --labels bug,duplicate \
-          --signing-public-key ${{ secrets.GPG_SIGN }} \
+          --signing-public-key "${{ secrets.GPG_SIGN }}" \
           --signing-name "Github Action" \
           --signing-email "41898282+github-actions@users.noreply.github.com"
