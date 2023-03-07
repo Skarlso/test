@@ -28,7 +28,7 @@ jobs:
           go-
     - name: Install Dependabot Bundler
       run: |
-        go install github.com/Skarlso/dependabot-bundler@f0501190f790fdb86525ead95f3004b7a56cb90f
+        go install github.com/Skarlso/dependabot-bundler@9f979d411bae7b693723b60cd3c686d0ead721b4
     - name: Run Dependabot Bundler
       run: |
         dependabot-bundler \
