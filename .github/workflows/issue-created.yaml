@@ -1,0 +1,19 @@
+name: Assign to Project
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  list-pulls:
+    runs-on: ubuntu-latest
+    steps:
+      - name: assign issue to project
+        uses: skarlso/caretaker@v0.0.1
+        with:
+          command: assign-issue
+          owner: skarlso
+          repo: test
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issueNumber: ${{ github.event.issue.number }}
+          projectNumber: 2
