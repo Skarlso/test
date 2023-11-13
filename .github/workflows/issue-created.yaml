@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: assign issue to project
-        uses: skarlso/caretaker@v0.0.2
+        uses: skarlso/caretaker@v0.0.3
         with:
           command: assign-issue
           owner: skarlso
