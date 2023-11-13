@@ -7,6 +7,7 @@ on:
 permissions:
   contents: write
   repository-projects: write
+  issues: write
 
 jobs:
   list-pulls:
@@ -18,6 +19,6 @@ jobs:
           command: assign-issue
           owner: skarlso
           repo: test
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PROJECT_TOKEN }}
           issueNumber: ${{ github.event.issue.number }}
           projectNumber: 2
