@@ -13,6 +13,8 @@ jobs:
           NUMBER: ${{ github.event.issue.number }}
           ID: ${{ github.event.issue.node_id }}
           BODY: ${{ github.event.issue.body }}
+          COMMENT_BODY: ${{ github.event.comment.body }}
+          COMMENT_ID: ${{ github.event.comment.node_id }}
 
   issue_commented:
     # This job only runs for issue comments
