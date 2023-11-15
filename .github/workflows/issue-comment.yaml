@@ -15,7 +15,8 @@ jobs:
           BODY: ${{ github.event.issue.body }}
           COMMENT_BODY: ${{ github.event.comment.body }}
           COMMENT_ID: ${{ github.event.comment.node_id }}
-          ACTOR_ID: ${{ github.event.actor.node_id }}
+          ACTOR_ID: ${{ github.event.actor.id }}
+          ACTOR_ID_2: ${{ github.actor_id }}
 
   issue_commented:
     # This job only runs for issue comments
