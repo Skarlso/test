@@ -1,0 +1,18 @@
+name: Scan Pull Requests with Caretaker
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: skarlso/caretaker@v0.2.1
+      name: Scan
+      with:
+        repo: test
+        owner: skarlso
+        token: ${{ secrets.PROJECT_TOKEN }}
+        statusOption: In Review # this needs to be an option you want the issue to land in
+        pullRequestProcessedLabel: caretaker-checked # a label to mark the pull request as seen
+        scanInterval: 320s
