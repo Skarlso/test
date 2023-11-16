@@ -10,6 +10,7 @@ jobs:
     - uses: skarlso/caretaker@v0.2.2
       name: Scan
       with:
+        command: scan
         repo: test
         owner: skarlso
         token: ${{ secrets.PROJECT_TOKEN }}
