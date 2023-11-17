@@ -10,7 +10,7 @@ permissions:
   issues: write
 
 jobs:
-  list-pulls:
+  assign:
     runs-on: ubuntu-latest
     steps:
       - name: assign issue to project

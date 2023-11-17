@@ -7,24 +7,14 @@ jobs:
     if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo A comment on PR $NUMBER
-        env:
-          NUMBER: ${{ github.event.issue.number }}
-          ID: ${{ github.event.issue.node_id }}
-          BODY: ${{ github.event.issue.body }}
-          COMMENT_BODY: ${{ github.event.comment.body }}
-          COMMENT_ID: ${{ github.event.comment.node_id }}
-          ACTOR_ID: ${{ github.event.actor.id }}
-          ACTOR_ID_2: ${{ github.actor_id }}
-
-  issue_commented:
-    # This job only runs for issue comments
-    name: Issue comment
-    if: ${{ !github.event.issue.pull_request }}
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo A comment on issue $NUMBER
-        env:
-          NUMBER: ${{ github.event.issue.number }}
+      - name: watch for slash commands from users
+        uses: skarlso/caretaker@v0.2.0
+        with:
+          command: slash
+          owner: skarlso
+          repo: test
+          token: ${{ secrets.PROJECT_TOKEN }}
+          pullRequestNumber: ${{ github.event.pull_request.number }}
+          actor: ${{ github.actor }}
+          commentBody: ${{ github.event.comment.body }}
+          commentID: ${{ github.event.comment.node_id }} # used for applying reactions
