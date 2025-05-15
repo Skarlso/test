@@ -16,7 +16,7 @@ jobs:
   release:
     needs:
       - check-release
-    if: ! needs.check-release.outputs.release_exists && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/release-'))
+    if: needs.check-release.outputs.release_exists == 'false' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/release-'))
     runs-on: ubuntu-latest
     steps:
       - name: All good
