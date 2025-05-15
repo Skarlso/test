@@ -1,0 +1,24 @@
+name: Check output
+on:
+  workflow_dispatch:
+
+jobs:
+  check-release:
+    runs-on: ubuntu-latest
+    outputs:
+      release_exists: ${{ steps.check_release.outputs.release_exists }}
+    steps:
+      - name: Check if release already exists
+        id: check_release
+        run: |
+          echo "Release does not exist"
+          echo "release_exists='false'" >> $GITHUB_OUTPUT
+  release:
+    needs:
+      - check-release
+    if: ! needs.check-release.outputs.release_exists && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/release-'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: All good
+        run: |
+          echo "value: ${{needs.check-release.outputs.release_exists}}"
