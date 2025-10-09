@@ -16,6 +16,6 @@ jobs:
           echo "values: ${{ steps.output.outputs.escaped }}"
       - name: escaped
         run: |
-          echo "value: $TEST"
+          echo "value: ${TEST}"
         env:
           TEST: ${{ steps.output.outputs.escaped }}
