@@ -10,7 +10,7 @@ jobs:
       - name: output
         id: output
         run: |
-          echo "Testing: test\$VAR;rm -rf /;`whoami`" >> $GITHUB_OUTPUT
+          echo "Testing: test\$VAR;rm -rf /;" >> $GITHUB_OUTPUT
       - name: not escaped
         run: |
           echo "values: ${{ steps.output.outputs.escaped }}"
