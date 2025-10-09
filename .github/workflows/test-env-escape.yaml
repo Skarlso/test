@@ -18,4 +18,4 @@ jobs:
         run: |
           echo "value: ${TEST}"
         env:
-          TEST: ${{ github.head_ref }}"
+          TEST: ${{ github.head_ref }}
