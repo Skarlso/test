@@ -3,6 +3,9 @@ name: Test env escape
 on:
   pull_request: {}
 
+env:
+  TEST: 'test\$VAR;`rm -rf`'
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -10,7 +13,7 @@ jobs:
       - name: output
         id: output
         run: |
-          echo "Testing: test\$VAR;`rm -rf`" >> $GITHUB_OUTPUT
+          echo "${TEST}" >> $GITHUB_OUTPUT
       - name: not escaped
         run: |
           echo "values: ${{ steps.output.outputs.escaped }}"
