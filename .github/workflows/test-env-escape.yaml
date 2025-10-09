@@ -1,0 +1,21 @@
+name: Test env escape
+
+on:
+  pull_request: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: output
+        id: output
+        run: |
+          echo "escaped=fuck':1" >> $GITHUB_OUTPUT
+      - name: not escaped
+        run: |
+          echo "values: ${{ steps.output.outputs.escaped }}"
+      - name: escaped
+        run: |
+          echo "value: $TEST"
+        env:
+          TEST: ${{ steps.output.outputs.escaped }}
