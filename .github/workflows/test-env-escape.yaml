@@ -10,12 +10,12 @@ jobs:
       - name: output
         id: output
         run: |
-          echo "escaped=fuck':1" >> $GITHUB_OUTPUT
-      - name: not escaped
-        run: |
-          echo "values: ${{ steps.output.outputs.escaped }}"
+          echo "ref: ${{ github.ref_name }}"
+    #   - name: not escaped
+    #     run: |
+    #       echo "values: ${{ steps.output.outputs.escaped }}"
       - name: escaped
         run: |
-          echo "value: $TEST"
+          echo "value: ${TEST}"
         env:
-          TEST: ${{ steps.output.outputs.escaped }}
+          TEST: ${{ github.ref_name }}"
